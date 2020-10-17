@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="VRUser" type="ARVROrigin"]
+
+[node name="Head" type="ARVRCamera" parent="."]
+
+[node name="ARVRControllerLeft" type="ARVRController" parent="."]
+
+[node name="ARVRControllerRight" type="ARVRController" parent="."]

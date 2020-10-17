@@ -1,0 +1,7 @@
+{
+   "bindings" : {
+   },
+   "controller_type" : "vive_controller",
+   "description" : "Bindings for vive_controller",
+   "name" : "Bindings for vive_controller"
+}

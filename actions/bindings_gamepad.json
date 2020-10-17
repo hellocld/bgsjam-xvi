@@ -1,0 +1,7 @@
+{
+   "bindings" : {
+   },
+   "controller_type" : "gamepad",
+   "description" : "Bindings for gamepad",
+   "name" : "Bindings for gamepad"
+}

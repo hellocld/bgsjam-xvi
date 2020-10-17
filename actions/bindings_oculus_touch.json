@@ -1,0 +1,7 @@
+{
+   "bindings" : {
+   },
+   "controller_type" : "oculus_touch",
+   "description" : "Bindings for oculus_touch",
+   "name" : "Bindings for oculus_touch"
+}

@@ -1,0 +1,7 @@
+{
+   "bindings" : {
+   },
+   "controller_type" : "holographic_controller",
+   "description" : "Bindings for holographic_controller",
+   "name" : "Bindings for holographic_controller"
+}
