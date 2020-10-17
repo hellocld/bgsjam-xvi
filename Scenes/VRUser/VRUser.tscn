@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/VRUser/VRUser.gd" type="Script" id=2]
+[ext_resource path="res://addons/godot-openvr/OpenVRAction.gdns" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.2
+height = 0.6
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.113725, 0.839216, 0.670588, 1 )
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.45098, 0, 0.560784, 1 )
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 5 )
+radius = 0.1
+height = 0.2
 
 [node name="VRUser" type="ARVROrigin"]
 script = ExtResource( 2 )
@@ -15,3 +36,22 @@ controller_id = 2
 
 [node name="Mirror" parent="ARVRControllerRight" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+
+[node name="ActionMove" type="Node" parent="."]
+script = ExtResource( 3 )
+analog_action = "/actions/game/in/player_move"
+
+[node name="PlayerBody" type="KinematicBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="PlayerBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18557e-08, -0.5 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="PlayerBody"]
+mesh = SubResource( 2 )
+material/0 = null

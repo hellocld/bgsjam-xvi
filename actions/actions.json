@@ -26,7 +26,11 @@
 		}
 	],
 	"actions": [
-		
+		{
+			"name": "/actions/game/in/player_move",
+			"requirement": "suggested",
+			"type": "vector2"
+		}
 	],
 	"action_set": [
 		{
@@ -37,7 +41,8 @@
 	"localization": [
 		{
 			"language_tag": "en_US",
-			"/actions/game": "Game actions"
+			"/actions/game": "Game actions",
+			"/actions/game/in/player_move": "Movement control for the player"
 		}
 	]
 }
