@@ -43,6 +43,7 @@ material = SubResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42193, 1, -1.45018 )
+radius = 0.377882
 height = 1.77395
 material = SubResource( 2 )
 
