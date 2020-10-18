@@ -8,6 +8,7 @@ onready var player_collider := $PlayerBody/CollisionShape
 
 var last_head_pos:Vector3
 
+
 func _ready():
 	player_body = $PlayerBody
 	
@@ -17,7 +18,7 @@ func get_head() -> ARVRCamera:
 	return $Head as ARVRCamera
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	"""
 	player_collider.global_transform.origin = Vector3(
 		$Head.global_transform.origin.x,
@@ -25,10 +26,10 @@ func _physics_process(delta):
 		$Head.global_transform.origin.z
 	)
 	"""
-	move_player($ActionMove.get_analog(), delta)
+	move_player($ActionMove.get_analog())
 
 
-func move_player(axis:Vector2, delta:float):
+func move_player(axis:Vector2):
 	forward_vec = (-$Head.global_transform.basis.z * Vector3(1, 0, 1)).normalized()
 	right_vec = ($Head.global_transform.basis.x.normalized() * Vector3(1, 0, 1)).normalized()
 	var move_vec = forward_vec * axis.y + right_vec * axis.x
@@ -42,3 +43,5 @@ func move_player(axis:Vector2, delta:float):
 	player_body.global_transform.origin = global_transform.origin
 
 
+func get_compass():
+	return $Compass

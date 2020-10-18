@@ -36,11 +36,13 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.693475, 0 )
+layers = 4
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412293, -0.218499 )
+layers = 4
 mesh = SubResource( 4 )
 material/0 = null
 
@@ -66,5 +68,4 @@ stream = ExtResource( 2 )
 attenuation_model = 1
 autoplay = true
 doppler_tracking = 2
-
 [connection signal="timeout" from="WaitTimer" to="." method="_on_WaitTimer_timeout"]
