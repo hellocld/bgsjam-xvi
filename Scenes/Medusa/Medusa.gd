@@ -13,21 +13,32 @@ func _ready():
 
 
 func _physics_process(delta):
-	if !navmesh || !$WaitTimer.is_stopped() || path.size() == 0:
+	if !navmesh:
 		return
+	if !$WaitTimer.is_stopped():
+		return
+	if path.size() == 0:
+		return
+	_move_towards_target()
+
+
+func _move_towards_target():
 	debug_target.global_transform.origin = path[target_index]
 	if global_transform.origin.distance_to(path[target_index]) <= 0.1:
-		print("Target reached")
 		target_index += 1
 		if target_index == path.size():
 			$WaitTimer.start()
-			return
-	var move_dir = (path[target_index] - global_transform.origin).normalized()
-	move_and_slide(move_dir * move_speed)
+	else:
+		var move_dir = (path[target_index] - global_transform.origin).normalized()
+		look_at(path[target_index], Vector3.UP)
+		move_and_slide(move_dir * move_speed)
 
 
 func _get_new_path():
-	target_pos = navmesh.get_closest_point(Vector3(rand_range(-30, 30), 0, rand_range(-30, 30)))
+	target_pos = navmesh.get_closest_point(
+		Vector3(rand_range(-40, 40), 0, rand_range(-40, 40))
+		)
+	print(target_pos)
 	path = navmesh.get_simple_path(global_transform.origin, target_pos)
 	target_index = 0
 
